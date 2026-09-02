@@ -1,3 +1,9 @@
+/* ============================================================
+ * TerrainForge Pro — panels-controls.css
+ * Main settings panel, tab system, form controls, equation/preset inputs, layer rows, toggle switches, generation progress bar.
+ * ============================================================ */
+
+/* MAIN UI PANEL */
 #terrain-ui{position:fixed;bottom:13px;left:50%;transform:translateX(-50%);
   width:96%;max-width:1120px;max-height:72vh;overflow:hidden;
   background:rgba(14,14,14,.99);
@@ -81,15 +87,29 @@ select option{background:#111111}
 #seed-in:focus{border-color:var(--ac)}
 
 /* ANALYSIS TAB */
-#analysis-canvas-wrap{position:relative;width:100%;max-height:46vh;border:1px solid rgba(255,255,255,.08);
+#analysis-canvas-wrap{position:relative;width:100%;max-height:52vh;border:1px solid rgba(255,255,255,.08);
   border-radius:9px;overflow:hidden;background:rgba(8,8,8,.9);display:flex;justify-content:center}
-#analysis-canvas{display:block;max-width:100%;max-height:46vh;width:auto;height:auto;image-rendering:pixelated}
+#analysis-canvas{display:block;max-width:100%;max-height:52vh;width:auto;height:auto;image-rendering:pixelated}
 #analysis-legend{display:flex;gap:10px;flex-wrap:wrap;font-family:var(--fm);font-size:8.5px;
   color:var(--t3);margin-top:4px}
 .an-leg{display:flex;align-items:center;gap:4px}
 .an-sw{width:10px;height:10px;border-radius:2px;display:inline-block;flex-shrink:0}
 #analysis-stats{display:flex;gap:14px;flex-wrap:wrap;background:rgba(12,12,12,.8);
   border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:9px 12px;margin-top:4px}
+
+/* ANALYSIS RESULT MODAL — centered, on top of everything, closable.
+   Same fixed/backdrop/centering convention as #save-modal and #import-modal,
+   so the analysis image can never again render underneath the tab bar. */
+#analysis-modal{position:fixed;inset:0;z-index:500;
+  background:rgba(0,0,0,.85);backdrop-filter:blur(12px);
+  display:none;align-items:center;justify-content:center;padding:20px}
+#analysis-modal.open{display:flex}
+.analysis-modal-box{position:relative;width:min(560px,92vw);max-height:88vh;overflow-y:auto}
+#analysis-modal-close{position:absolute;top:-6px;right:-6px;width:26px;height:26px;border-radius:8px;
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(240,68,102,.14);border:1px solid rgba(240,68,102,.35);color:#f04466;
+  cursor:pointer;z-index:1}
+#analysis-modal-close:hover{background:rgba(240,68,102,.24)}
 
 /* DOCS TAB */
 .doc-pipeline{display:flex;align-items:center;flex-wrap:wrap;gap:0;
@@ -159,5 +179,4 @@ select option{background:#111111}
 #prog-bar{height:100%;background:linear-gradient(90deg,var(--ac),var(--go));
   border-radius:3px;width:0%;transition:width .15s}
 #prog-label{font-family:var(--fm);font-size:9px;color:var(--t3)}
-
 
