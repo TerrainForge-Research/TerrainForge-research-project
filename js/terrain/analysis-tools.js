@@ -1,5 +1,5 @@
 function renderAnalysis(mode){
-  if(!heightCache){ toast('No Terrain','Generate a terrain first.'); return; }
+  if(!heightCache){ toast('No Terrain','Generate a terrain first.'); return false; }
   var hmap=heightCache.hmap, GRID=heightCache.GRID, s=heightCache.s;
   var N=GRID*GRID;
   var canvas=$('analysis-canvas');
@@ -130,6 +130,7 @@ function renderAnalysis(mode){
   $('an-s-mode').textContent=mode.charAt(0).toUpperCase()+mode.slice(1);
   $('an-s-extra').textContent=extra;
   STATE._lastAnalysisMode=mode;
+  return true;
 }
 
 // Draw a small 3×3 marker dot into an ImageData buffer
@@ -155,4 +156,7 @@ function downloadAnalysisPNG(){
   });
 }
 
+
+function showAnalysisModal(){ $('analysis-modal').classList.add('open'); }
+function hideAnalysisModal(){ $('analysis-modal').classList.remove('open'); }
 

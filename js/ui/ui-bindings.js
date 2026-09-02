@@ -1,3 +1,4 @@
+
 function toast(title,body){
   var t=document.createElement('div');t.className='toast';
   t.innerHTML='<div class="tt">'+title+'</div><div class="tb">'+body+'</div>';
@@ -307,8 +308,12 @@ function bindEvents(){
   $('btn-export-glb-high').addEventListener('click',function(){exportGLBTier('high');});
   $('btn-export-glb-ultra').addEventListener('click',function(){exportGLBTier('ultra');});
   $('btn-export-glb-data').addEventListener('click',exportGLBDataChannels);
-  $('btn-an-run').addEventListener('click',function(){ renderAnalysis($('an-mode').value); });
+  $('btn-an-run').addEventListener('click',function(){
+    if(renderAnalysis($('an-mode').value)!==false) showAnalysisModal();
+  });
   $('btn-an-dl').addEventListener('click',downloadAnalysisPNG);
+  $('analysis-modal-close').addEventListener('click',hideAnalysisModal);
+  $('analysis-modal').addEventListener('click',function(e){if(e.target===$('analysis-modal'))hideAnalysisModal();});
   $('btn-new-proj').addEventListener('click',function(){
     currentProjId=null;
     STATE.seed=Math.floor(Math.random()*99999);
@@ -457,10 +462,14 @@ function bindEvents(){
   bindWaveLabControls();
   // Water motion equation controls
   bindWaterEqControls();
+  
   // Climate Biome System + Tree LOD controls
+  
+  
   bindClimateAndLODControls();
 
-  // ── FPP MOBILE TOUCH BINDINGS ──────────────────────────────────────
+ 
+ // ── FPP MOBILE TOUCH BINDINGS ──────────────────────────────────────
   (function(){
     var joyZone  = $('fpp-joy-zone');
     var lookZone = $('fpp-look-zone');
@@ -498,6 +507,7 @@ function bindEvents(){
         var t=e.changedTouches[i];
         if(t.identifier!==fpp.touch.joy.id) continue;
         var rect=joyZone.getBoundingClientRect();
+        
         var cx=t.clientX-rect.left, cy=t.clientY-rect.top;
         fpp.touch.joy.dx=cx-fpp.touch.joy.baseX;
         fpp.touch.joy.dy=cy-fpp.touch.joy.baseY;
@@ -637,11 +647,10 @@ function bindEvents(){
     fpp.pitch=Math.max(-1.48,Math.min(1.48,fpp.pitch));
   });
 
-  // Pointer lock change — exit FPP if pointer lock unexpectedly released
+  
   document.addEventListener('pointerlockchange',function(){
     if(!document.pointerLockElement && fpp.active){
-      // Don't call exitFPP here to avoid re-requesting lock in a loop;
-      // just clean up the UI state
+      
       fpp.active=false; fpp.keys={};
       ['fpp-crosshair','fpp-underwater','fpp-hint','fpp-exit-prompt','fpp-speed-hud','fpp-mobile-ui'].forEach(function(id){
         var el=$(id); if(el) el.style.display='none';
@@ -666,3 +675,4 @@ function bindEvents(){
     }
   });
 }
+
