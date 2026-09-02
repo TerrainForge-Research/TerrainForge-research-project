@@ -3,25 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-<title>TerrainForge ••” Procedural Map Builder</title>
+<title>TerrainForge ..” Procedural Map Builder</title>
 
 <!-- PWA: manifest + icons + platform meta -->
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#000000">
-
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
-
 <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="TerrainForge">
-
 <meta name="mobile-web-app-capable" content="yes">
 
 <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- Browser zoom lock ••” loaded first so it is active before first paint -->
+<!-- Browser zoom lock ..” loaded first so it is active before first paint -->
 <script src="js/platform/zoom-lock.js"></script>
 
 <!-- Stylesheets (split by UI area; order does not affect the cascade since each rule set is disjoint) -->
@@ -37,7 +34,7 @@
 <div id="loading">
   <div class="spin"></div>
   <h2>Terrain BuildUp</h2>
-  <p>Initialising procedural engine••¦</p>
+  <p>Initialising procedural engine..¦</p>
 </div>
 
 <!-- 3D CANVAS filled by Three.js -->
@@ -49,7 +46,7 @@
   <button class="btn sm go" id="btn-regen"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-right:4px"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Generate</button>
   <button class="btn sm" id="btn-save-proj"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-right:4px"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>Save</button>
 
-  <!-- Hidden real export buttons ••” triggered programmatically -->
+  <!-- Hidden real export buttons ..” triggered programmatically -->
   <button id="btn-export"       style="display:none"></button>
   <button id="btn-export-obj"   style="display:none"></button>
   <button id="btn-export-glb"   style="display:none"></button>
@@ -62,7 +59,7 @@
   <button id="btn-export-glb-ultra"  style="display:none"></button>
   <button id="btn-export-glb-data"   style="display:none"></button>
 
-  <!-- •‹¯ Export menu trigger -->
+  <!-- .‹¯ Export menu trigger -->
   <div id="export-menu-wrap" style="position:relative">
     <button class="btn sm" id="btn-export-menu" title="Export options" style="letter-spacing:.12em;font-size:16px;padding:4px 11px;line-height:1">&#8943;</button>
     
@@ -74,7 +71,7 @@
     <span class="stog-dot"></span>
   </button>
   <!-- FPP MODE BUTTON -->
-  <button class="btn sm" id="btn-fpp" title="First-Person View ••” walk your terrain (WASD + Mouse)">
+  <button class="btn sm" id="btn-fpp" title="First-Person View ..” walk your terrain (WASD + Mouse)">
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-right:4px"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>FPP View
   </button>
 </div>
@@ -83,13 +80,13 @@
 <div id="fpp-crosshair"></div>
 <div id="fpp-underwater"></div>
 <div id="fpp-hint">
-  <kbd>W A S D</kbd> Move &nbsp;•·&nbsp; <kbd>Mouse</kbd> Look &nbsp;•·&nbsp;
-  <kbd>Space</kbd> Jump &nbsp;•·&nbsp; <kbd>Shift</kbd> Sprint &nbsp;•·&nbsp;
+  <kbd>W A S D</kbd> Move &nbsp;.·&nbsp; <kbd>Mouse</kbd> Look &nbsp;.·&nbsp;
+  <kbd>Space</kbd> Jump &nbsp;.·&nbsp; <kbd>Shift</kbd> Sprint &nbsp;.·&nbsp;
   <kbd>F</kbd> / <kbd>ESC</kbd> Exit FPP
   <br>
-  <span style="color:rgba(94,240,138,.7);font-size:9px">ğŸ“± Touch: Left = Move joystick &nbsp;•·&nbsp; Right = Look &nbsp;•·&nbsp; •†‘ Jump &nbsp;•·&nbsp; •š¡ Sprint</span>
+  <span style="color:rgba(94,240,138,.7);font-size:9px">ğ.“± Touch: Left = Move joystick &nbsp;.·&nbsp; Right = Look &nbsp;.·&nbsp; .†‘ Jump &nbsp;.·&nbsp; .š¡ Sprint</span>
 </div>
-<div id="fpp-exit-prompt">First-Person Mode &nbsp;•·&nbsp; Press <kbd>F</kbd> or <kbd>ESC</kbd> to exit</div>
+<div id="fpp-exit-prompt">First-Person Mode &nbsp;.·&nbsp; Press <kbd>F</kbd> or <kbd>ESC</kbd> to exit</div>
 <div id="fpp-speed-hud"></div>
 
 <!-- FPP MOBILE TOUCH CONTROLS (shown only in FPP mode) -->
@@ -106,8 +103,8 @@
     <span class="fpp-zone-label" id="fpp-zone-label-r">Look</span>
   </div>
   <!-- Action buttons -->
-  <button id="fpp-jump-btn" title="Jump">•†‘</button>
-  <button id="fpp-sprint-btn" title="Sprint toggle">•š¡</button>
+  <button id="fpp-jump-btn" title="Jump">.†‘</button>
+  <button id="fpp-sprint-btn" title="Sprint toggle">.š¡</button>
   <!-- Mobile exit button (top-right, touchable) -->
   <button id="fpp-mobile-exit" style="
     position:absolute;top:12px;right:14px;
@@ -121,21 +118,21 @@
     pointer-events:all;touch-action:manipulation;
     cursor:pointer;
     -webkit-tap-highlight-color:transparent;
-  ">•œ• Exit FPP</button>
+  ">.œ• Exit FPP</button>
 </div>
 
 <!-- STATS -->
 <div id="terrain-stats">
-  <div class="sr"><span class="sl">Peak Height</span><span class="sv ca" id="s-peak">••”</span></div>
-  <div class="sr"><span class="sl">Water Level</span><span class="sv ca" id="s-water">••”</span></div>
+  <div class="sr"><span class="sl">Peak Height</span><span class="sv ca" id="s-peak">..”</span></div>
+  <div class="sr"><span class="sl">Water Level</span><span class="sv ca" id="s-water">..”</span></div>
   <div class="sr"><span class="sl">Tree Instances</span><span class="sv cg" id="s-trees">0</span></div>
   <div class="sr"><span class="sl">Rock Instances</span><span class="sv cg" id="s-rocks">0</span></div>
-  <div class="sr"><span class="sl">Tree LOD</span><span class="sv" id="s-treelod" style="color:var(--gr)">••”</span></div>
+  <div class="sr"><span class="sl">Tree LOD</span><span class="sv" id="s-treelod" style="color:var(--gr)">..”</span></div>
   <div class="sdiv"></div>
-  <div class="sr"><span class="sl">Biome</span><span class="sv cgo" id="s-biome">••”</span></div>
-  <div class="sr"><span class="sl">Coverage</span><span class="sv cp" id="s-cov">••”</span></div>
-  <div class="sr"><span class="sl">Flow Paths</span><span class="sv" id="s-flow" style="color:var(--ac)">••”</span></div>
-  <div class="sr"><span class="sl">River Network</span><span class="sv" id="s-rivers" style="color:#4ab8ff">••”</span></div>
+  <div class="sr"><span class="sl">Biome</span><span class="sv cgo" id="s-biome">..”</span></div>
+  <div class="sr"><span class="sl">Coverage</span><span class="sv cp" id="s-cov">..”</span></div>
+  <div class="sr"><span class="sl">Flow Paths</span><span class="sv" id="s-flow" style="color:var(--ac)">..”</span></div>
+  <div class="sr"><span class="sl">River Network</span><span class="sv" id="s-rivers" style="color:#4ab8ff">..”</span></div>
   <button id="btn-animate">
     <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
     Animate
@@ -150,42 +147,42 @@
     <svg class="chev" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
   </button>
   <div class="info-docs" id="info-docs-body" style="display:none">
-    <div class="ph">Scientific Documentation ••” Generation Pipeline</div>
+    <div class="ph">Scientific Documentation ..” Generation Pipeline</div>
     <div class="doc-pipeline" id="doc-pipeline">
       <div class="doc-stage"><div class="doc-stage-name">Noise Layer</div><div class="doc-stage-sub">fBm / Ridge /<br>Billow / Voronoi</div></div>
-      <div class="doc-arrow">•†’</div>
+      <div class="doc-arrow">.†’</div>
       <div class="doc-stage"><div class="doc-stage-name">Domain Warp</div><div class="doc-stage-sub">Chaos / Wave<br>Modifiers</div></div>
-      <div class="doc-arrow">•†’</div>
+      <div class="doc-arrow">.†’</div>
       <div class="doc-stage"><div class="doc-stage-name">Erosion</div><div class="doc-stage-sub">Thermal +<br>Hydraulic</div></div>
-      <div class="doc-arrow">•†’</div>
+      <div class="doc-arrow">.†’</div>
       <div class="doc-stage"><div class="doc-stage-name">Hydrology</div><div class="doc-stage-sub">Flow Accum. /<br>River Carving</div></div>
-      <div class="doc-arrow">•†’</div>
-      <div class="doc-stage"><div class="doc-stage-name">Mesh Export</div><div class="doc-stage-sub">Grid •†’ Mesh •†’<br>GLB / OBJ</div></div>
+      <div class="doc-arrow">.†’</div>
+      <div class="doc-stage"><div class="doc-stage-name">Mesh Export</div><div class="doc-stage-sub">Grid .†’ Mesh .†’<br>GLB / OBJ</div></div>
     </div>
 
     <div class="doc-card">
       <h4>Reproducible Seed</h4>
-      <p>This map is fully deterministic. The seed below initializes the simplex noise permutation table and every pseudo-random process (foliage placement, hydraulic erosion droplets). Sharing the seed ••” or the full map code from the Seed tab ••” reproduces this exact world, vertex-for-vertex, on any device.</p>
+      <p>This map is fully deterministic. The seed below initializes the simplex noise permutation table and every pseudo-random process (foliage placement, hydraulic erosion droplets). Sharing the seed ..” or the full map code from the Seed tab ..” reproduces this exact world, vertex-for-vertex, on any device.</p>
       <div class="dna-card2" style="margin-top:0">
-        <div class="dna-kv"><span class="dna-k">Seed</span><span class="dna-v" id="doc-seed">••”</span></div>
-        <div class="dna-kv"><span class="dna-k">Equation h(x,y)</span><span class="dna-v" id="doc-eq" style="font-size:9px;max-width:260px;word-break:break-all">••”</span></div>
-        <div class="dna-kv"><span class="dna-k">Amplitude / Scale</span><span class="dna-v" id="doc-oct">••”</span></div>
+        <div class="dna-kv"><span class="dna-k">Seed</span><span class="dna-v" id="doc-seed">..”</span></div>
+        <div class="dna-kv"><span class="dna-k">Equation h(x,y)</span><span class="dna-v" id="doc-eq" style="font-size:9px;max-width:260px;word-break:break-all">..”</span></div>
+        <div class="dna-kv"><span class="dna-k">Amplitude / Scale</span><span class="dna-v" id="doc-oct">..”</span></div>
       </div>
     </div>
 
     <div class="doc-card">
       <h4>Generation Benchmark</h4>
       <div class="doc-grid">
-        <div class="dna-kv"><span class="dna-k">Grid Resolution</span><span class="dna-v" id="doc-grid">••”</span></div>
-        <div class="dna-kv"><span class="dna-k">Vertices</span><span class="dna-v" id="doc-verts">••”</span></div>
-        <div class="dna-kv"><span class="dna-k">Triangles</span><span class="dna-v" id="doc-tris">••”</span></div>
-        <div class="dna-kv"><span class="dna-k">Build Time</span><span class="dna-v" id="doc-time">••”</span></div>
+        <div class="dna-kv"><span class="dna-k">Grid Resolution</span><span class="dna-v" id="doc-grid">..”</span></div>
+        <div class="dna-kv"><span class="dna-k">Vertices</span><span class="dna-v" id="doc-verts">..”</span></div>
+        <div class="dna-kv"><span class="dna-k">Triangles</span><span class="dna-v" id="doc-tris">..”</span></div>
+        <div class="dna-kv"><span class="dna-k">Build Time</span><span class="dna-v" id="doc-time">..”</span></div>
       </div>
     </div>
 
     <div class="doc-card">
       <h4>Mesh Simplification Tiers</h4>
-      <p>Exported GLB tiers resample the heightmap to a coarser grid, rebuild normals/UVs, and re-bake the biome texture ••” giving consistent, crack-free LODs rather than naive vertex-decimation artifacts.</p>
+      <p>Exported GLB tiers resample the heightmap to a coarser grid, rebuild normals/UVs, and re-bake the biome texture ..” giving consistent, crack-free LODs rather than naive vertex-decimation artifacts.</p>
       <div class="doc-grid">
         <div class="dna-kv"><span class="dna-k">Low</span><span class="dna-v">~10,000 tris</span></div>
         <div class="dna-kv"><span class="dna-k">Medium</span><span class="dna-v">~50,000 tris</span></div>
@@ -200,38 +197,38 @@
     </div>
 
     <div class="doc-card">
-      <h4>Engineering Roadmap ••” Toward a Deterministic World-Design System</h4>
+      <h4>Engineering Roadmap ..” Toward a Deterministic World-Design System</h4>
       <p>The path from "a procedural terrain generator" to "a deterministic world-design system with shareable generative logic" runs through four phases. Each item below is marked with its status in this build.</p>
 
-      <div class="roadmap-phase">Phase 1 ••” Structural Core</div>
+      <div class="roadmap-phase">Phase 1 ..” Structural Core</div>
       <div class="roadmap-item">
         <div class="ri-head"><span class="ri-name">1. Deterministic World Pipeline</span><span class="ri-status ri-done">Implemented</span></div>
-        <p>Generation runs as a fixed, ordered pipeline ••” Seed •†’ Base Height (noise/layers) •†’ Erosion •†’ Rivers •†’ Biome Splat •†’ Mesh ••” entirely driven by the numeric seed and parameter set. The same seed and map code reproduce the exact same world, vertex-for-vertex, on any device.</p>
+        <p>Generation runs as a fixed, ordered pipeline ..” Seed .†’ Base Height (noise/layers) .†’ Erosion .†’ Rivers .†’ Biome Splat .†’ Mesh ..” entirely driven by the numeric seed and parameter set. The same seed and map code reproduce the exact same world, vertex-for-vertex, on any device.</p>
       </div>
       <div class="roadmap-item">
         <div class="ri-head"><span class="ri-name">2. Parameter Graph System</span><span class="ri-status ri-partial">Partial</span></div>
-        <p>The Nodes tab already exposes a visual node graph for building the elevation equation (noise sources, modifiers, combinators). Erosion, biome, and hydrology settings are still flat parameter groups rather than nodes in that same graph ••” unifying them into one graph is the next step.</p>
+        <p>The Nodes tab already exposes a visual node graph for building the elevation equation (noise sources, modifiers, combinators). Erosion, biome, and hydrology settings are still flat parameter groups rather than nodes in that same graph ..” unifying them into one graph is the next step.</p>
       </div>
       <div class="roadmap-item">
         <div class="ri-head"><span class="ri-name">3. Debug / Visualization Layer</span><span class="ri-status ri-done">Implemented</span></div>
-        <p>The Analysis tab renders slope maps, curvature (ridge/valley) maps, flow &amp; drainage, peaks &amp; valleys, and watershed basin segmentation directly from the live heightmap ••” giving visibility into <em>why</em> the terrain looks the way it does.</p>
+        <p>The Analysis tab renders slope maps, curvature (ridge/valley) maps, flow &amp; drainage, peaks &amp; valleys, and watershed basin segmentation directly from the live heightmap ..” giving visibility into <em>why</em> the terrain looks the way it does.</p>
       </div>
 
-      <div class="roadmap-phase">Phase 2 ••” Differentiation Layer</div>
+      <div class="roadmap-phase">Phase 2 ..” Differentiation Layer</div>
       <div class="roadmap-item">
         <div class="ri-head"><span class="ri-name">4. Multi-Pass Terrain System</span><span class="ri-status ri-done">Implemented</span></div>
         <p>Base shaping (fBm/ridge/billow/voronoi layers), thermal erosion, hydraulic erosion, river flow accumulation + carving, and biome diffusion via slope/height splat all run as distinct passes over the heightmap.</p>
       </div>
       <div class="roadmap-item">
         <div class="ri-head"><span class="ri-name">5. Constraint-Based Generation</span><span class="ri-status ri-planned">Planned</span></div>
-        <p>Not yet implemented. Would add a post-generation solver pass that nudges the heightmap to satisfy spatial rules ••” e.g. "mountains only on the north side", "a river must connect points A and B", "coastal cliffs on the west edge" ••” via iterative correction after the base pipeline runs.</p>
+        <p>Not yet implemented. Would add a post-generation solver pass that nudges the heightmap to satisfy spatial rules ..” e.g. "mountains only on the north side", "a river must connect points A and B", "coastal cliffs on the west edge" ..” via iterative correction after the base pipeline runs.</p>
       </div>
       <div class="roadmap-item">
-        <div class="ri-head"><span class="ri-name">6. QR / Map Code •†’ "World Language"</span><span class="ri-status ri-done">Implemented</span></div>
-        <p>The map code now encodes the full deterministic recipe ••” equation, scale/amplitude/octaves, resolution, erosion type and all of its parameters, river generation and carving settings, biome thresholds, colors, density sliders, regions, and layer stack. Loading a code reproduces the world exactly. It does not yet encode a constraint set, since constraint-based generation (item 5) doesn't exist.</p>
+        <div class="ri-head"><span class="ri-name">6. QR / Map Code .†’ "World Language"</span><span class="ri-status ri-done">Implemented</span></div>
+        <p>The map code now encodes the full deterministic recipe ..” equation, scale/amplitude/octaves, resolution, erosion type and all of its parameters, river generation and carving settings, biome thresholds, colors, density sliders, regions, and layer stack. Loading a code reproduces the world exactly. It does not yet encode a constraint set, since constraint-based generation (item 5) doesn't exist.</p>
       </div>
 
-      <div class="roadmap-phase">Phase 3 ••” Scalability</div>
+      <div class="roadmap-phase">Phase 3 ..” Scalability</div>
       <div class="roadmap-item">
         <div class="ri-head"><span class="ri-name">7. Chunked Terrain + LOD Scaling</span><span class="ri-status ri-partial">Partial</span></div>
         <p>Auto LOD (Terrain tab) swaps between full/medium/low-resolution meshes by camera distance, and the export tiers (Low/Medium/High/Ultra) give equivalent control for exported assets. True chunk-based streaming for worlds larger than one heightmap grid is not yet implemented.</p>
@@ -241,19 +238,19 @@
         <p>Not yet implemented. Would snapshot the parameter graph after each pipeline stage and provide a diff view ("what changed between version A and B") for iterative world design.</p>
       </div>
 
-      <div class="roadmap-phase">Phase 4 ••” Ecosystem</div>
+      <div class="roadmap-phase">Phase 4 ..” Ecosystem</div>
       <div class="roadmap-item">
         <div class="ri-head"><span class="ri-name">9. World Forking / Remix</span><span class="ri-status ri-partial">Partial</span></div>
-        <p>The Seed tab now has a "Fork Variant" button ••” it keeps the entire world recipe (equation, erosion, rivers, biomes, colors, layers) but rolls a fresh seed and copies the new map code, so you get a same-feel variant ready to share. A full lineage/history view of forks is not yet built.</p>
+        <p>The Seed tab now has a "Fork Variant" button ..” it keeps the entire world recipe (equation, erosion, rivers, biomes, colors, layers) but rolls a fresh seed and copies the new map code, so you get a same-feel variant ready to share. A full lineage/history view of forks is not yet built.</p>
       </div>
       <div class="roadmap-item">
         <div class="ri-head"><span class="ri-name">10. Extensible Biomes / Rules</span><span class="ri-status ri-partial">Partial</span></div>
-        <p>The Biomes tab exposes height-band thresholds (snow line, forest range, beach width) and slope-based rock classification, plus tree/rock density sliders. A full rule system based on independent temperature and moisture fields ••” and community-defined biome packs ••” is not yet implemented.</p>
+        <p>The Biomes tab exposes height-band thresholds (snow line, forest range, beach width) and slope-based rock classification, plus tree/rock density sliders. A full rule system based on independent temperature and moisture fields ..” and community-defined biome packs ..” is not yet implemented.</p>
       </div>
     </div>
       <div class="doc-card">
-      <h4>Roadmap ••” Real-Time Chaos Engine on the GPU</h4>
-      <p>The Chaos Engine's PDE evaluation is currently CPU-bound. Moving the wave field evaluation, gradient computation, erosion, and sediment advection to a WebGPU fragment shader ••” treating the heightmap as a texture and running the PDE as a render pass ••” would enable real-time terrain deformation at 60fps for arbitrarily large grids.</p>
+      <h4>Roadmap ..” Real-Time Chaos Engine on the GPU</h4>
+      <p>The Chaos Engine's PDE evaluation is currently CPU-bound. Moving the wave field evaluation, gradient computation, erosion, and sediment advection to a WebGPU fragment shader ..” treating the heightmap as a texture and running the PDE as a render pass ..” would enable real-time terrain deformation at 60fps for arbitrarily large grids.</p>
       <p>This is essentially the approach used in research-grade fluid simulation on GPUs: each simulation step becomes a full-screen pass that reads the previous height/velocity textures and writes the next state, with erosion and sediment transport implemented as additional passes operating on the same texture set.</p>
       <div class="doc-grid">
         <div class="dna-kv"><span class="dna-k">Current</span><span class="dna-v">CPU, JS loops</span></div>
@@ -273,26 +270,26 @@
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
   </div>
-  <div class="coord-row"><span>FPS</span><span id="coord-fps">••”</span></div>
+  <div class="coord-row"><span>FPS</span><span id="coord-fps">..”</span></div>
   <div class="coord-sec-title">Clicked Point</div>
-  <div class="coord-row"><span>X</span><span id="coord-x">••”</span></div>
-  <div class="coord-row"><span>Y</span><span id="coord-y">••”</span></div>
-  <div class="coord-row"><span>Z</span><span id="coord-z">••”</span></div>
+  <div class="coord-row"><span>X</span><span id="coord-x">..”</span></div>
+  <div class="coord-row"><span>Y</span><span id="coord-y">..”</span></div>
+  <div class="coord-row"><span>Z</span><span id="coord-z">..”</span></div>
   <div class="coord-sec-title">Map Info</div>
-  <div class="coord-row"><span>Peak Height</span><span id="coord-peak">••”</span></div>
-  <div class="coord-row"><span>Water Level</span><span id="coord-water">••”</span></div>
-  <div class="coord-row"><span>Biome</span><span id="coord-biome">••”</span></div>
-  <div class="coord-row"><span>Trees</span><span id="coord-trees">••”</span></div>
-  <div class="coord-row"><span>Rocks</span><span id="coord-rocks">••”</span></div>
-  <div class="coord-row"><span>Coverage</span><span id="coord-cov">••”</span></div>
+  <div class="coord-row"><span>Peak Height</span><span id="coord-peak">..”</span></div>
+  <div class="coord-row"><span>Water Level</span><span id="coord-water">..”</span></div>
+  <div class="coord-row"><span>Biome</span><span id="coord-biome">..”</span></div>
+  <div class="coord-row"><span>Trees</span><span id="coord-trees">..”</span></div>
+  <div class="coord-row"><span>Rocks</span><span id="coord-rocks">..”</span></div>
+  <div class="coord-row"><span>Coverage</span><span id="coord-cov">..”</span></div>
   <div class="coord-hint">Tap anywhere on the terrain to read its coordinates</div>
 </div>
 
 <!-- GEN PROGRESS -->
 <div id="gen-progress">
-  <h4><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-right:4px"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Building Terrain••¦</h4>
+  <h4><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-right:4px"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Building Terrain..¦</h4>
   <div id="prog-bar-wrap"><div id="prog-bar"></div></div>
-  <div id="prog-label">Initialising heightmap••¦</div>
+  <div id="prog-label">Initialising heightmap..¦</div>
 </div>
 
 <!-- TOAST BOX -->
@@ -313,7 +310,7 @@
     <button class="tab-btn" data-tab="nodes"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-right:4px"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Nodes</button>
     <button class="tab-btn" data-tab="seed"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-right:4px"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 11-7.778 7.778 5.5 5.5 0 017.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>Seed</button>
     <button class="tab-btn" data-tab="analysis"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-right:4px"><path d="M3 3v18h18"/><path d="M7 16l4-7 3 4 5-9"/></svg>Analysis</button>
-    <button class="tab-btn" data-tab="wave" title="Neurowave Lab ••” Wave Disaster Simulator"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-right:4px"><path d="M2 12c1.5-4 3.5-6 5-6s3.5 5 5 6 3.5 2 5 0 3.5-6 5-6"/><path d="M2 19c1.5-4 3.5-6 5-6s3.5 5 5 6 3.5 2 5 0 3.5-6 5-6"/></svg>Wave</button>
+    <button class="tab-btn" data-tab="wave" title="Neurowave Lab ..” Wave Disaster Simulator"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-right:4px"><path d="M2 12c1.5-4 3.5-6 5-6s3.5 5 5 6 3.5 2 5 0 3.5-6 5-6"/><path d="M2 19c1.5-4 3.5-6 5-6s3.5 5 5 6 3.5 2 5 0 3.5-6 5-6"/></svg>Wave</button>
     <button class="tab-btn" data-tab="chaos" title="Coupled Wave-Terrain Field Simulation"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-right:4px"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Chaos</button>
   </div>
 
@@ -327,12 +324,12 @@
         <input id="terrain-eq" type="text" value="fbm(x,y,6)*3 + ridge(x,y)*1.5" placeholder="fbm(x,y,6)*3 ...">
       </div>
       <select id="preset-sel">
-        <option value="">••” Presets ••”</option>
+        <option value="">..” Presets ..”</option>
         <option value="fbm(x,y,6)*3 + ridge(x,y)*1.5">Mountain Range</option>
         <option value="fbm(x,y,4)*2">Rolling Hills</option>
         <option value="fbm(x*0.5,y*0.5,8)*4 - 0.5">High Plateau</option>
         <option value="island(x,y,3.5)">Tropical Island</option>
-        <option value="canyon(x,y)">ğŸª¨ Canyon Lands</option>
+        <option value="canyon(x,y)">ğ.ª¨ Canyon Lands</option>
         <option value="volcano(x,y)">Volcano</option>
         <option value="fjord(x,y)">Fjord Coast</option>
         <option value="mesa(x,y)">Desert Mesa</option>
@@ -369,18 +366,18 @@
       <div class="tog-wrap" id="tog-normals"><div class="tog" id="tn-tog"></div><span class="tog-lbl">Show Normals</span></div>
       <div class="tog-wrap" id="tog-flat"><div class="tog" id="tf-tog"></div><span class="tog-lbl">Flat Shade</span></div>
       <div class="tog-wrap" id="tog-cam"><div class="tog" id="tc-tog" class="on"></div><span class="tog-lbl">Auto Rotate</span></div>
-      <div class="tog-wrap" id="tog-lod" title="Swap to coarser meshes when the camera is far away ••” like a game engine"><div class="tog" id="lod-tog"></div><span class="tog-lbl">Auto LOD</span></div>
+      <div class="tog-wrap" id="tog-lod" title="Swap to coarser meshes when the camera is far away ..” like a game engine"><div class="tog" id="lod-tog"></div><span class="tog-lbl">Auto LOD</span></div>
     </div>
     <div class="div"></div>
     <!-- TERRAIN REGIONS -->
     <div class="fold-hdr" onclick="toggleFold(this)">
-      <span class="fold-arrow">•–¶</span>
+      <span class="fold-arrow">.–¶</span>
       <span style="flex:1">Terrain Regions</span>
       <span id="rgn-count-badge">0 zones</span>
     </div>
     <div class="fold-body" id="rgn-fold-body">
       <div style="font-size:9px;color:var(--t3);line-height:1.6;margin-bottom:7px;font-family:var(--fm)">
-        Paint independent terrain presets across different areas of the map, or <b style="color:var(--go)">import an exact terrain</b> from one of your saved maps. Imported terrains appear in the viewport ••” <b style="color:var(--ac)">drag to position</b> them like Blender. Works best with <b style="color:var(--pu)">Map Area •‰¥ 2Ã—</b>.
+        Paint independent terrain presets across different areas of the map, or <b style="color:var(--go)">import an exact terrain</b> from one of your saved maps. Imported terrains appear in the viewport ..” <b style="color:var(--ac)">drag to position</b> them like Blender. Works best with <b style="color:var(--pu)">Map Area .‰¥ 2Ã—</b>.
       </div>
       <div id="rgn-con"></div>
       <div class="cr" style="margin-top:2px;gap:6px;flex-wrap:nowrap">
@@ -413,11 +410,11 @@
     </div>
     <div class="div"></div>
     <div class="wl-section">
-      <div class="wl-hdr">Water Motion Equation ••” z(x,y,t)</div>
+      <div class="wl-hdr">Water Motion Equation ..” z(x,y,t)</div>
       <div class="cr" style="margin-bottom:5px;flex-wrap:wrap">
         <div class="tog-wrap" id="tog-water-eq"><div class="tog" id="tweq-tog"></div><span class="tog-lbl">Custom Equation</span></div>
         <select id="water-eq-preset" style="font-size:10px;flex:1;max-width:none">
-          <option value="">••” Presets ••”</option>
+          <option value="">..” Presets ..”</option>
           <optgroup label="Ocean Motion">
             <option value="sin(x*1.2+t*0.6)*0.6 + sin(y*0.9-t*0.5)*0.4">Gentle Swell</option>
             <option value="sin(d*3-t*1.5)*0.9/(1+d*0.15)">Radial Ripples</option>
@@ -514,14 +511,14 @@
         <span class="svs" id="v-coastMoist">0.40</span></div>
     </div>
     <div style="font-family:var(--fm);font-size:9px;color:var(--t3);line-height:1.7;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:8px 10px;margin-top:6px">
-      <span style="color:var(--ac);font-weight:600">Whittaker-style classification:</span> Low+Wet •†’ Forest &middot; Low+Dry •†’ Grassland &middot; Medium+Wet •†’ Dense Forest &middot; Hot+Wet •†’ Rainforest &middot; Cold •†’ Tundra/Taiga &middot; High •†’ Rock &middot; Very High •†’ Snow. Full breakdown in <span style="color:var(--t1)">Analysis •†’ Biome Map</span>.
+      <span style="color:var(--ac);font-weight:600">Whittaker-style classification:</span> Low+Wet .†’ Forest &middot; Low+Dry .†’ Grassland &middot; Medium+Wet .†’ Dense Forest &middot; Hot+Wet .†’ Rainforest &middot; Cold .†’ Tundra/Taiga &middot; High .†’ Rock &middot; Very High .†’ Snow. Full breakdown in <span style="color:var(--t1)">Analysis .†’ Biome Map</span>.
     </div>
 
     <div class="div"></div>
     <div class="ph">Tree Level-of-Detail</div>
     <div class="cr" style="margin-bottom:6px">
       <div class="tog-wrap" id="tog-treelod"><div class="tog on" id="ttlod-tog"></div><span class="tog-lbl">Enable Tree LOD</span></div>
-      <span class="info-chip">Far •†’ billboard &middot; Mid •†’ low-poly &middot; Near •†’ full mesh</span>
+      <span class="info-chip">Far .†’ billboard &middot; Mid .†’ low-poly &middot; Near .†’ full mesh</span>
     </div>
     <div class="cr">
       <div class="sg"><span class="slbl">LOD Near</span>
@@ -569,7 +566,7 @@
         <span class="svs" id="v-evap">0.020</span></div>
     </div>
     <div class="cr" id="ero-thermal-controls" style="display:none">
-      <div class="sg"><span class="slbl">Talus Angle•°</span>
+      <div class="sg"><span class="slbl">Talus Angle.°</span>
         <input type="range" id="sl-talus" min="5" max="80" step="1" value="30">
         <span class="svs" id="v-talus">30</span></div>
       <div class="sg"><span class="slbl">Iterations</span>
@@ -590,9 +587,9 @@
 
     <!-- Stats row -->
     <div class="wl-stats">
-      <div class="wl-stat"><div class="wl-stat-lbl">Peak |W|</div><div class="wl-stat-val" id="wl-s-peak">••”</div></div>
-      <div class="wl-stat"><div class="wl-stat-lbl">RMS</div><div class="wl-stat-val" id="wl-s-rms">••”</div></div>
-      <div class="wl-stat"><div class="wl-stat-lbl">Ïƒ Energy</div><div class="wl-stat-val" id="wl-s-std">••”</div></div>
+      <div class="wl-stat"><div class="wl-stat-lbl">Peak |W|</div><div class="wl-stat-val" id="wl-s-peak">..”</div></div>
+      <div class="wl-stat"><div class="wl-stat-lbl">RMS</div><div class="wl-stat-val" id="wl-s-rms">..”</div></div>
+      <div class="wl-stat"><div class="wl-stat-lbl">Ïƒ Energy</div><div class="wl-stat-val" id="wl-s-std">..”</div></div>
     </div>
 
     <!-- Wave surface controls -->
@@ -610,10 +607,10 @@
 
     <!-- Equation -->
     <div class="wl-section">
-      <div class="wl-hdr">Wave Equation ••” z(x,y,t)</div>
+      <div class="wl-hdr">Wave Equation ..” z(x,y,t)</div>
       <div class="cr" style="margin-bottom:5px;flex-wrap:wrap">
         <select id="wl-preset" style="font-size:10px;flex:1;max-width:none">
-          <option value="">••” Disaster Presets ••”</option>
+          <option value="">..” Disaster Presets ..”</option>
           <optgroup label="Catastrophic Waves">
             <option value="sin(d*2-t)*1.2 + prev(x,y)*0.9">Resonant Memory Storm</option>
             <option value="sin(d*3-t*2)*cos(x*2+y*2+t)*2.5">Cylindrical Catastrophe</option>
@@ -666,7 +663,7 @@
     <!-- Color palette -->
     <div class="wl-section">
       <div class="fold-hdr" onclick="toggleFold(this)">
-        <span class="fold-arrow">•–¶</span>
+        <span class="fold-arrow">.–¶</span>
         <span>Color Palette</span>
       </div>
       <div class="fold-body">
@@ -692,7 +689,7 @@
     <!-- Ripple emitters -->
     <div class="wl-section">
       <div class="fold-hdr" onclick="toggleFold(this)" style="justify-content:space-between">
-        <span style="display:flex;align-items:center;gap:5px"><span class="fold-arrow">•–¶</span>Ripple Emitters</span>
+        <span style="display:flex;align-items:center;gap:5px"><span class="fold-arrow">.–¶</span>Ripple Emitters</span>
         <span id="wl-rip-count" style="font-family:var(--fm);font-size:8.5px;color:var(--ac);background:rgba(88,200,248,.12);border:1px solid rgba(88,200,248,.25);border-radius:3px;padding:1px 6px">0</span>
       </div>
       <div class="fold-body">
@@ -701,11 +698,11 @@
         <button class="btn sm er" id="btn-wl-clearrip">Clear</button>
       </div>
       <div class="wl-rip-row">
-        <button class="wl-rt-btn active" data-rtype="normal">•— Normal</button>
-        <button class="wl-rt-btn amplify" data-rtype="amplify">•–² Amplify</button>
-        <button class="wl-rt-btn destroy" data-rtype="destroy">•œ• Destroy</button>
-        <button class="wl-rt-btn" data-rtype="stabilize">•— Stabilize</button>
-        <button class="wl-rt-btn resonate" data-rtype="resonate">•‰‹ Resonate</button>
+        <button class="wl-rt-btn active" data-rtype="normal">.— Normal</button>
+        <button class="wl-rt-btn amplify" data-rtype="amplify">.–² Amplify</button>
+        <button class="wl-rt-btn destroy" data-rtype="destroy">.œ• Destroy</button>
+        <button class="wl-rt-btn" data-rtype="stabilize">.— Stabilize</button>
+        <button class="wl-rt-btn resonate" data-rtype="resonate">.‰‹ Resonate</button>
       </div>
       </div>
     </div>
@@ -713,8 +710,8 @@
     <!-- Impact coupling -->
     <div class="wl-section">
       <div class="fold-hdr" onclick="toggleFold(this)">
-        <span class="fold-arrow">•–¶</span>
-        <span>Impact Coupling •†’ Chaos</span>
+        <span class="fold-arrow">.–¶</span>
+        <span>Impact Coupling .†’ Chaos</span>
       </div>
       <div class="fold-body">
       <div class="cr" style="margin-bottom:5px">
@@ -766,16 +763,16 @@
         <option value="(sin(x*1.5+t)+cos(y*1.5-t*0.7))*2.5 + noise(x-t*0.3,y+t*0.2)*2 + sin(d*1.5-t*0.8)*1.2">Cyclostorm</option>
         <option value="sin(x*2+t)*cos(y*3-t*1.5)*2 + warp(x*0.6,y*0.6,1.2)*2.5 + sin(d*1.8-t)*1">Domain Warp</option>
         <option value="fbm(x*0.6+t*0.15,y*0.6-t*0.12,5)*3 + noise(x*0.3-t*0.2,y*0.3+t*0.15)*1.5">Smooth Current</option>
-        <option value="custom">Custom••¦</option>
+        <option value="custom">Custom..¦</option>
       </select>
     </div>
     <div id="chaos-custom-row" style="display:none;margin-bottom:6px">
-      <input type="text" id="chaos-eq-input" placeholder="sin(d*3-t*2)*fbm(x,y,4)+cos(x*2+t)••¦" autocomplete="off" spellcheck="false">
+      <input type="text" id="chaos-eq-input" placeholder="sin(d*3-t*2)*fbm(x,y,4)+cos(x*2+t)..¦" autocomplete="off" spellcheck="false">
     </div>
 
     <div class="chaos-param-group">
       <div class="fold-hdr" onclick="toggleFold(this)">
-        <span class="fold-arrow">•–¶</span>
+        <span class="fold-arrow">.–¶</span>
         <span>Coupling Parameters</span>
       </div>
       <div class="fold-body">
@@ -827,17 +824,17 @@
         <div class="tog" id="tco-tog"></div>
         <span class="tog-lbl">Erosion Heat Map</span>
       </div>
-      <span class="info-chip">Red=eroded •· Blue=deposited</span>
+      <span class="info-chip">Red=eroded .· Blue=deposited</span>
     </div>
 
     <div class="chaos-stats-grid" id="chaos-stats-grid" style="display:none">
       <div class="cstat-card energy">
         <div class="cstat-label">Peak Energy</div>
-        <div class="cstat-value" id="cs-energy">••”</div>
+        <div class="cstat-value" id="cs-energy">..”</div>
       </div>
       <div class="cstat-card stability">
         <div class="cstat-label">Stability</div>
-        <div class="cstat-value" id="cs-stability">••”</div>
+        <div class="cstat-value" id="cs-stability">..”</div>
       </div>
       <div class="cstat-card eroded">
         <div class="cstat-label">Vol. Eroded</div>
@@ -864,7 +861,7 @@
     <!-- CHAOS EVENT GENERATOR -->
     <div class="cevt-section">
       <div class="fold-hdr" onclick="toggleFold(this)" style="border-bottom:none;margin-bottom:0;padding-bottom:4px">
-        <span class="fold-arrow">•–¶</span>
+        <span class="fold-arrow">.–¶</span>
         <span class="cevt-title" style="font-size:8px">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:4px"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
           Event Generator
@@ -877,23 +874,23 @@
       <!-- 5 event type tiles -->
       <div class="cevt-grid">
         <button class="cevt-btn cyclone active" data-cevt="cyclone">
-          <span class="cevt-icon">ğŸŒ•</span>
+          <span class="cevt-icon">ğ.Œ.</span>
           <span class="cevt-lbl">Cyclone</span>
         </button>
         <button class="cevt-btn impact" data-cevt="impact">
-          <span class="cevt-icon">ğŸ’¥</span>
+          <span class="cevt-icon">ğ.’¥</span>
           <span class="cevt-lbl">Impact</span>
         </button>
         <button class="cevt-btn tsunami" data-cevt="tsunami">
-          <span class="cevt-icon">ğŸŒŠ</span>
+          <span class="cevt-icon">ğ.ŒŠ</span>
           <span class="cevt-lbl">Tsunami</span>
         </button>
         <button class="cevt-btn resonance" data-cevt="resonance">
-          <span class="cevt-icon">ğŸ“¡</span>
+          <span class="cevt-icon">ğ.“¡</span>
           <span class="cevt-lbl">Resonance</span>
         </button>
         <button class="cevt-btn standing" data-cevt="standing" style="grid-column:1/-1">
-          <span class="cevt-icon">ã•°</span>
+          <span class="cevt-icon">ã.°</span>
           <span class="cevt-lbl">Standing Wave</span>
         </button>
       </div>
@@ -910,7 +907,7 @@
       </div>
 
       <div class="cevt-event-log" id="cevt-log">
-        <span style="color:rgba(255,255,255,.2)">No events yet ••” spawn one above</span>
+        <span style="color:rgba(255,255,255,.2)">No events yet ..” spawn one above</span>
       </div>
       </div><!-- /fold-body -->
     </div>
@@ -929,7 +926,7 @@
 
   <!-- COLOR TAB -->
   <div class="tab-pane" id="tab-color">
-    <div class="ph">Splat Map ••” Texture Zones by Height & Slope</div>
+    <div class="ph">Splat Map ..” Texture Zones by Height & Slope</div>
     <div class="cr">
       <div class="sg">
         <span class="swatch" style="background:#1a6bbd"></span>
@@ -975,17 +972,17 @@
       <div class="sg"><span class="slbl">Beach Width</span>
         <input type="range" id="sl-beach" min="0.01" max="0.15" step="0.005" value="0.04">
         <span class="svs" id="v-beach">0.040</span></div>
-      <button class="btn sm" id="btn-apply-color">•†º Apply Colors</button>
+      <button class="btn sm" id="btn-apply-color">.†º Apply Colors</button>
     </div>
   </div>
 
 
   <!-- NODES TAB -->
   <div class="tab-pane" id="tab-nodes">
-    <div class="ph">Visual Node Graph ••” Equation Builder</div>
+    <div class="ph">Visual Node Graph ..” Equation Builder</div>
     <div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin-bottom:7px">
       <select id="ng-add-node" style="font-size:9px">
-        <option value="">+ Add Node••¦</option>
+        <option value="">+ Add Node..¦</option>
         <optgroup label="Noise Sources">
           <option value="fbm">FBM Noise</option>
           <option value="ridge">Ridge Noise</option>
@@ -1004,7 +1001,7 @@
           <option value="abs">Abs |A|</option>
           <option value="clamp">Clamp</option>
           <option value="smoothstep">Smoothstep</option>
-          <option value="power">Power A•¿</option>
+          <option value="power">Power A.¿</option>
         </optgroup>
         <optgroup label="Math Operations">
           <option value="add">Add (A+B)</option>
@@ -1012,7 +1009,7 @@
           <option value="subtract">Subtract (A-B)</option>
           <option value="scale">Scale (AÃ—k)</option>
           <option value="offset">Offset (A+k)</option>
-          <option value="mix">Mix (A•†”B)</option>
+          <option value="mix">Mix (A.†”B)</option>
           <option value="max_n">Max(A,B)</option>
           <option value="min_n">Min(A,B)</option>
         </optgroup>
@@ -1027,7 +1024,7 @@
     <div id="ng-canvas-wrap" style="position:relative;width:100%;height:240px;background:rgba(12,12,12,.9);border:1px solid rgba(255,255,255,.08);border-radius:9px;overflow:hidden;cursor:default">
       <svg id="ng-svg" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:visible"></svg>
       <div id="ng-nodes" style="position:absolute;inset:0;z-index:2"></div>
-      <div style="position:absolute;bottom:7px;right:10px;font-size:8px;color:rgba(255,255,255,.2);font-family:var(--fm);pointer-events:none">Drag nodes •· Click ports to connect</div>
+      <div style="position:absolute;bottom:7px;right:10px;font-size:8px;color:rgba(255,255,255,.2);font-family:var(--fm);pointer-events:none">Drag nodes .· Click ports to connect</div>
     </div>
     <!-- Compiler diagnostics panel -->
     <div id="ng-diag" style="background:rgba(10,10,10,.85);border:1px solid rgba(255,255,255,.07);border-radius:7px;padding:6px 10px;font-family:var(--fm);font-size:8.5px;line-height:1.8;margin-top:2px;min-height:22px">
@@ -1039,23 +1036,23 @@
   <div class="tab-pane" id="tab-seed">
     <div class="ph">Seed & Map Code</div>
     <div id="seed-bar">
-      <input id="seed-in" type="text" placeholder="Enter seed or map code••¦">
+      <input id="seed-in" type="text" placeholder="Enter seed or map code..¦">
       <button class="btn sm go" id="btn-seed-load">Load Seed</button>
       <button class="btn sm" id="btn-seed-gen"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-right:4px"><rect x="2" y="2" width="20" height="20" rx="3"/><circle cx="8" cy="8" r="1.3" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="16" cy="16" r="1.3" fill="currentColor" stroke="none"/><circle cx="16" cy="8" r="1.3" fill="currentColor" stroke="none"/><circle cx="8" cy="16" r="1.3" fill="currentColor" stroke="none"/></svg>Random</button>
       <button class="btn sm" id="btn-seed-copy"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-right:4px"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>Copy Code</button>
     </div>
     <div class="div"></div>
     <div id="dna-card">
-      <div class="dna-kv"><span class="dna-k">Map Seed</span><span class="dna-v" id="d-seed">••”</span></div>
-      <div class="dna-kv"><span class="dna-k">Complexity</span><span class="dna-v" id="d-cmx">••”</span></div>
-      <div class="dna-kv"><span class="dna-k">Biome Type</span><span class="dna-v" id="d-biome">••”</span></div>
+      <div class="dna-kv"><span class="dna-k">Map Seed</span><span class="dna-v" id="d-seed">..”</span></div>
+      <div class="dna-kv"><span class="dna-k">Complexity</span><span class="dna-v" id="d-cmx">..”</span></div>
+      <div class="dna-kv"><span class="dna-k">Biome Type</span><span class="dna-v" id="d-biome">..”</span></div>
       <div class="dna-kv"><span class="dna-k">Rarity</span><span class="rb rc" id="d-rar">Common</span></div>
-      <div class="dna-kv"><span class="dna-k">Map Name</span><span class="dna-v" id="d-sig">••”</span></div>
+      <div class="dna-kv"><span class="dna-k">Map Name</span><span class="dna-v" id="d-sig">..”</span></div>
     </div>
     <div class="div"></div>
     <div class="ph" style="margin-bottom:2px">Fork / Remix</div>
     <p style="font-family:var(--fm);font-size:9px;color:var(--t2);line-height:1.7;margin:0 0 6px">
-      Every world is fully described by its map code ••” every noise, erosion, river, and
+      Every world is fully described by its map code ..” every noise, erosion, river, and
       biome parameter above. Forking keeps that entire recipe but rolls a new seed, so
       you get a fresh variant with the same "feel". Copy the new code to share it.
     </p>
@@ -1066,7 +1063,7 @@
 
   <!-- ANALYSIS TAB -->
   <div class="tab-pane" id="tab-analysis">
-    <div class="ph">Terrain Analysis ••” Research Tools</div>
+    <div class="ph">Terrain Analysis ..” Research Tools</div>
     <div class="cr">
       <select id="an-mode" style="font-size:9px">
         <option value="slope">Slope Map</option>
@@ -1077,18 +1074,8 @@
         <option value="biome">Biome Map</option>
       </select>
       <button class="btn sm am" id="btn-an-run"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-right:4px"><path d="M3 3v18h18"/><path d="M7 16l4-7 3 4 5-9"/></svg>Analyze</button>
-      <button class="btn sm" id="btn-an-dl"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-right:4px"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download PNG</button>
     </div>
-    <div id="analysis-legend"></div>
-    <div id="analysis-stats">
-      <div class="dna-kv"><span class="dna-k">Mode</span><span class="dna-v" id="an-s-mode">••”</span></div>
-      <div class="dna-kv"><span class="dna-k">Mean</span><span class="dna-v" id="an-s-mean">••”</span></div>
-      <div class="dna-kv"><span class="dna-k">Max</span><span class="dna-v" id="an-s-max">••”</span></div>
-      <div class="dna-kv"><span class="dna-k">Detail</span><span class="dna-v" id="an-s-extra">••”</span></div>
-    </div>
-    <div id="analysis-canvas-wrap">
-      <canvas id="analysis-canvas" width="256" height="256"></canvas>
-    </div>
+    <div style="font-size:8.5px;color:var(--t3);line-height:1.5">Result opens centered, on top of everything ..” tap Analyze to view it.</div>
   </div>
 
   </div><!-- /tab-content -->
@@ -1124,11 +1111,12 @@
   <div class="proj-grid" id="proj-grid"></div>
 </div>
 
+
 <!-- SAVE MODAL -->
 <div id="save-modal">
   <div class="modal-box">
     <h3><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-right:4px"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>Save Map</h3>
-    <input id="proj-name-inp" type="text" placeholder="Map name••¦" maxlength="60">
+    <input id="proj-name-inp" type="text" placeholder="Map name..¦" maxlength="60">
     <div class="modal-btns">
       <button class="btn er sm" id="save-cancel">Cancel</button>
       <button class="btn go sm" id="save-confirm">Save</button>
@@ -1136,7 +1124,7 @@
   </div>
 </div>
 
-<!-- IMPORT PLACEMENT HUD ••” Blender-style interactive terrain placement -->
+<!-- IMPORT PLACEMENT HUD ..” Blender-style interactive terrain placement -->
 <div id="import-placement-hud">
   <div class="iph-header">
     <div class="iph-icon">
@@ -1146,7 +1134,7 @@
     </div>
     <div class="iph-title-col">
       <div class="iph-label">&#9654; Placing Terrain</div>
-      <div class="iph-name" id="iph-name">••”</div>
+      <div class="iph-name" id="iph-name">..”</div>
     </div>
   </div>
   <div class="iph-size-row">
@@ -1164,11 +1152,11 @@
     </div>
     <div class="iph-coord-cell">
       <span class="iph-coord-lbl">Map Size</span>
-      <span class="iph-coord-val" style="font-size:10px;color:var(--t2)" id="iph-mapsize">••”</span>
+      <span class="iph-coord-val" style="font-size:10px;color:var(--t2)" id="iph-mapsize">..”</span>
     </div>
     <div class="iph-coord-cell">
       <span class="iph-coord-lbl">Coverage</span>
-      <span class="iph-coord-val" style="font-size:10px;color:var(--t2)" id="iph-coverage">••”</span>
+      <span class="iph-coord-val" style="font-size:10px;color:var(--t2)" id="iph-coverage">..”</span>
     </div>
   </div>
   <div class="iph-size-sliders">
@@ -1193,10 +1181,10 @@
     </div>
   </div>
   <div class="iph-hint">
-    <span>Drag</span> in viewport to position &nbsp;•·&nbsp; <span>Scroll</span> to zoom &nbsp;•·&nbsp; <span>Right-drag</span> to orbit
+    <span>Drag</span> in viewport to position &nbsp;.·&nbsp; <span>Scroll</span> to zoom &nbsp;.·&nbsp; <span>Right-drag</span> to orbit
   </div>
   <div class="iph-btns">
-    <button class="iph-cancel" id="iph-cancel">•œ• Cancel</button>
+    <button class="iph-cancel" id="iph-cancel">.œ• Cancel</button>
     <button class="iph-confirm" id="iph-confirm">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
       Place Here
@@ -1212,11 +1200,39 @@
       Import Terrain
     </h3>
     <p style="font-family:var(--fm);font-size:9.5px;color:var(--t2);line-height:1.7;margin:-6px 0 12px">
-      Pick one of your saved maps. It will appear in the <b style="color:var(--ac)">3D viewport</b> as a glowing preview ••” <b style="color:var(--go)">drag it to position</b>, then click <b style="color:var(--go)">Place Here</b>. Up to <b style="color:var(--t1)">5</b> imports per world.
+      Pick one of your saved maps. It will appear in the <b style="color:var(--ac)">3D viewport</b> as a glowing preview ..” <b style="color:var(--go)">drag it to position</b>, then click <b style="color:var(--go)">Place Here</b>. Up to <b style="color:var(--t1)">5</b> imports per world.
     </p>
     <div id="import-list" style="display:flex;flex-direction:column;gap:8px;max-height:48vh;overflow-y:auto;margin-bottom:6px"></div>
     <div class="modal-btns">
       <button class="btn er sm" id="import-cancel">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ANALYSIS RESULT MODAL ..” opens centered on top of everything when "Analyze"
+     is clicked, replacing the old inline canvas that used to render underneath
+     the tab bar on some mobile browsers. -->
+<div id="analysis-modal">
+  <div class="modal-box analysis-modal-box">
+    <button id="analysis-modal-close" title="Close">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <h3>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-right:4px"><path d="M3 3v18h18"/><path d="M7 16l4-7 3 4 5-9"/></svg>
+      Analysis Result
+    </h3>
+    <div id="analysis-legend"></div>
+    <div id="analysis-canvas-wrap">
+      <canvas id="analysis-canvas" width="256" height="256"></canvas>
+    </div>
+    <div id="analysis-stats">
+      <div class="dna-kv"><span class="dna-k">Mode</span><span class="dna-v" id="an-s-mode">..”</span></div>
+      <div class="dna-kv"><span class="dna-k">Mean</span><span class="dna-v" id="an-s-mean">..”</span></div>
+      <div class="dna-kv"><span class="dna-k">Max</span><span class="dna-v" id="an-s-max">..”</span></div>
+      <div class="dna-kv"><span class="dna-k">Detail</span><span class="dna-v" id="an-s-extra">..”</span></div>
+    </div>
+    <div class="modal-btns">
+      <button class="btn sm" id="btn-an-dl"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0;margin-right:4px"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download PNG</button>
     </div>
   </div>
 </div>
@@ -1226,7 +1242,7 @@
 <div id="anim-panel">
   <div class="anim-toolbar">
     <!-- Record -->
-    <button class="ab rec" id="anim-btn-rec" title="Record ••” move camera to capture keyframes">
+    <button class="ab rec" id="anim-btn-rec" title="Record ..” move camera to capture keyframes">
       <svg width="9" height="9" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor"/></svg>
       Record
     </button>
@@ -1288,7 +1304,7 @@
       <div class="anim-ruler" id="anim-ruler"></div>
       <div class="anim-track" id="anim-track">
         <div class="anim-track-line"></div>
-        <div class="anim-empty-hint" id="anim-empty-hint">Click ruler to scrub •· Add KF to begin</div>
+        <div class="anim-empty-hint" id="anim-empty-hint">Click ruler to scrub .· Add KF to begin</div>
       </div>
       <div class="anim-playhead" id="anim-playhead"></div>
     </div>
@@ -1434,7 +1450,7 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M10 9l5 3-5 3V9z" fill="currentColor" stroke="none"/></svg>
       Export Animation
     </div>
-    <div class="aex-subtitle" id="aex-kf-info">Loading keyframe info••¦</div>
+    <div class="aex-subtitle" id="aex-kf-info">Loading keyframe info..¦</div>
 
     <!-- Settings (shown during config) -->
     <div id="aex-settings">
@@ -1482,7 +1498,7 @@
       <!-- Format note -->
       <div class="aex-section">
         <div class="aex-format-note">
-          Output: <span id="aex-fmt-label">MP4 (H.264) or WebM</span> ••” auto-selected based on your browser. Frames rendered <span>offline</span> at exact timing.
+          Output: <span id="aex-fmt-label">MP4 (H.264) or WebM</span> ..” auto-selected based on your browser. Frames rendered <span>offline</span> at exact timing.
         </div>
       </div>
     </div>
@@ -1490,7 +1506,7 @@
     <!-- Progress (shown during export) -->
     <div class="aex-progress-wrap" id="aex-progress-wrap">
       <div class="aex-prog-bar-bg"><div class="aex-prog-bar-fill" id="aex-prog-fill"></div></div>
-      <div class="aex-prog-label" id="aex-prog-label">Preparing••¦</div>
+      <div class="aex-prog-label" id="aex-prog-label">Preparing..¦</div>
     </div>
 
     <!-- Actions -->
@@ -1504,10 +1520,12 @@
   </div>
 </div>
 
-
+<!-- THREE.JS via CDN ..” must load before any local script that touches THREE.* -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-
+<!-- Application modules. Classic (non-module) scripts sharing global scope, exactly
+     like the original single-file build ..” see README.md for why, and js/init.js
+     for the bootstrap that brings everything online once all of these have loaded. -->
 <script src="js/util/dom-helpers.js"></script>
 <script src="js/util/simplex-noise.js"></script>
 <script src="js/state/state.js"></script>
